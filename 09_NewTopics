@@ -1,0 +1,13 @@
+function SetUserName(username){
+    this.username = username;
+    console.log("called");
+}
+
+function createUser(username, email, password){
+    //SetUserName(username);//This hasn't been yet called
+    SetUserName.call(this, username); // Call is used to pass current execution context to another function
+    this.email = email;
+    this.password = password;
+}
+const Ritochit = new createUser("Ritochit Ghosh", "ghosh@ghosh.com", "123@321");
+console.log(Ritochit);
